@@ -13,16 +13,16 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-start; /* Aligns content to the top */
-            align-items: flex-start; /* Aligns content to the top */
+            flex-direction: column;
+            align-items: flex-start;
             height: 100vh;
         }
         .container {
             text-align: left;
             width: 90%;
             max-width: 600px;
-            margin-top: 20px; /* Optional: Adds some space from the top */
-            margin-left: 20px; /* Adds left indent */
+            margin-top: 20px;
+            margin-left: 20px;
         }
         h1, h2 {
             margin: 0;
@@ -30,10 +30,18 @@
     </style>
 </head>
 <body>
+    <div id="menu-container"></div>
     <div class="container">
         <h1>GOOD Orthodontics</h1>
         <h2>Dr. Phoebe Good</h2>
     </div>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu-container').innerHTML = data;
+            });
+    </script>
 </body>
 </html>
 
